@@ -83,6 +83,7 @@ python -m src.predict
 spins up a lightweight local development web server to run your browser interface
 ```bash streamlit run app/app.py
 ```
+
 ---
 
 ## dataset scope disclaimer
