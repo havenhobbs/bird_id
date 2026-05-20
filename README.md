@@ -1,10 +1,6 @@
 # bird id platform
 
-<<<<<<< HEAD
 a mobile-first, deep-learning platform that identifies bird species from user-uploaded images. the project utilizes transfer learning with **MobileNetV3Large** via TensorFlow, exports the optimized computational graph into **ONNX Runtime**, and serves a clean web interface using **Streamlit**
-=======
-a deep-learning platform that identifies bird species from user-uploaded images. the prject utilizes transfer learning with **MobileNetV3Large** via tensorflow, exports the optimized computational graph into **ONNX Runtime**, and serves a clean web interface using **Streamlit**.
->>>>>>> 05291930d46bbdae259712ebb771e8df4a87d67d
 
 the model is trained on the **CUB-200-2011** datasetfeaturing 200 distinct bird species primarily native to North America
 
