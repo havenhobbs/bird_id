@@ -81,7 +81,8 @@ python -m src.predict
 
 ### step 5: boot the Streamlit web application ui
 spins up a lightweight local development web server to run your browser interface
-```bash streamlit run app/app.py
+```bash
+streamlit run app/app.py
 ```
 
 ---
