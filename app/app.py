@@ -1,10 +1,15 @@
 import os
+import uvicorn
 import streamlit as st
 import cv2
 import numpy as np
 import onnxruntime as ort
 import pandas as pd
 
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    uvicorn.run("app.app:app", host="0.0.0.0", port=port)
+    
 # set up webpage and title
 st.set_page_config(page_title="bird id", page_icon=":camera:", layout="centered")
 
