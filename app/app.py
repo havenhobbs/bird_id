@@ -21,7 +21,12 @@ class bird_id_app:
         opts = ort.SessionOptions()
         opts.intra_op_num_threads = 1
         opts.inter_op_num_threads = 1
-        self.session = ort.InferenceSession(model_path, sess_options=opts)
+        
+        self.session = ort.InferenceSession(
+            model_path, 
+            sess_options=opts,
+            providers=["CPUExecutionProvider"]
+        )
         
         # load class names from metadata
         if os.path.exists(metadata_path):
