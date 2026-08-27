@@ -6,6 +6,8 @@ the model is trained on the **CUB-200-2011** datasetfeaturing 200 distinct bird 
 
 ---
 
+*[live deploy]()*
+
 ## project architecture
 
 ```text
