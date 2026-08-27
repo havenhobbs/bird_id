@@ -112,7 +112,7 @@ if uploaded_file is not None:
                     predicted_class = raw_class.replace("_", " ")
                     
                 st.success(f"species: **{predicted_class}**")
-                st.metric(label="we're this sure", value=f"{confidence_score * 100:.1f}%")
+                st.metric(label="we're this sure it's not yolanda winston", value=f"{confidence_score * 100:.1f}%")
                               
             except Exception as e:
                 st.error(f"error processing image: {str(e)}")
