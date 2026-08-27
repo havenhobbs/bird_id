@@ -12,9 +12,14 @@ class bird_id_app:
     def __init__(self, model_path="app/model/bird_id.onnx", metadata_path="data/processed/val.csv", labels_path="app/labels.txt"):
         self.model_path = model_path
         
+        if not os.path.exists(model_path) and os.path.exists("app/model/bird_id.onnx"):
+            model_path = "app/model/bird_id.onnx"
+        elif not os.path.exists(model_path) and os.path.exists("model/bird_id.onnx"):
+            model_path = "model/bird_id.onnx"
+            
         if not os.path.exists(model_path):
             self.session = None
-            self.class_names = ["demo mode: run src/predict.py to generate the model"]
+            self.class_names = [f"species index {i}" for i in range(200)]
             st.error(f"model file missing at {model_path}!")
             return
         
@@ -28,7 +33,15 @@ class bird_id_app:
             providers=["CPUExecutionProvider"]
         )
         
-        # load class names from metadata
+        resolved_labels_path = None
+        
+        if os.path.exists(labels_path):
+            resolved_labels_path = labels_path
+        elif os.path.exists("app/labels.txt"):
+            resolved_labels_path = "app/labels.txt"
+        elif os.path.exists("labels.txt"):
+            resolved_labels_path = "labels.txt"
+            
         if os.path.exists(metadata_path):
             
             import pandas as pd
