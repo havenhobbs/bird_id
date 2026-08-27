@@ -56,7 +56,7 @@ def get_app_instance():
 app = get_app_instance()
 
 st.title("what yo name is?")
-st.write("upload an image of a baddie to identify its species")
+st.write("upload an image of a bird baddie to identify its species")
     
 uploaded_file = st.file_uploader("choose an image", type=["jpg", "jpeg", "png"])
     
