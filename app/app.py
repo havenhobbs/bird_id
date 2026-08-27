@@ -9,7 +9,7 @@ import pandas as pd
 st.set_page_config(page_title="bird id", page_icon=":camera:", layout="centered")
 
 class bird_id_app:
-    def __init__(self, model_path="app/model/bird_id.onnx", metadata_path="data/processed/val.csv"):
+    def __init__(self, model_path="app/model/bird_id.onnx", metadata_path="data/processed/val.csv", labels_path="app/labels.txt"):
         self.model_path = model_path
         
         if not os.path.exists(model_path):
@@ -31,9 +31,15 @@ class bird_id_app:
         # load class names from metadata
         if os.path.exists(metadata_path):
             
+            import pandas as pd
             df = pd.read_csv(metadata_path)
             class_mapping = df[["label", "class_name"]].drop_duplicates().sort_values("label")  
             self.class_names = class_mapping["class_name"].tolist()
+            
+        elif os.path.exists(labels_path):
+            with open(labels_path, "r") as f:
+                self.class_names = [line.strip() for line in f.readlines() if line.strip()]
+            
         else: 
             self.class_names = [f"species index {i}" for i in range(200)]
         
