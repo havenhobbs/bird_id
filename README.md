@@ -6,7 +6,7 @@ the model is trained on the **CUB-200-2011** datasetfeaturing 200 distinct bird 
 
 ---
 
-*[live deploy]()*
+*[live deploy](https://bird-id-0ldi.onrender.com)*
 
 ## project architecture
 
